@@ -13,6 +13,14 @@ When working a city level for the whole France, map generation is taking too lon
 
 To display city level maps, only one (or a limited set of) department(s) has to be selected. See notebook.
 
+### Running the Streamlit app
+
+Application should be started from the main directory:
+
+```
+streamlit run app/app.py
+```
+
 ## Credits
 
 Dataset from https://data.gouv.fr.

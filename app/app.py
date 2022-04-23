@@ -14,7 +14,7 @@ CHOOSE_DEPARTMENT = 'Choisir un département'
 
 
 # Loading results per city
-results_df = (pd.read_csv('../data/04-resultats-par-commune.csv.gz', dtype={'dep_code': str, 'commune_code': str})
+results_df = (pd.read_csv('data/04-resultats-par-commune.csv.gz', dtype={'dep_code': str, 'commune_code': str})
                 .assign(code=lambda _df: _df['dep_code'] + _df['commune_code'])
                 .query('~dep_code.str.startswith("Z")'))
 
@@ -42,8 +42,8 @@ candidates_dict = (results_df[['cand_num_panneau', 'cand_prenom', 'cand_nom']]
 candidate_num = candidates[0]
 
 # Loading geojson files
-cities_gdf = geopandas.read_file('../references/communes-version-simplifiee.geojson')
-departements_gdf = geopandas.read_file('../references/departements-version-simplifiee.geojson')
+cities_gdf = geopandas.read_file('references/communes-version-simplifiee.geojson')
+departements_gdf = geopandas.read_file('references/departements-version-simplifiee.geojson')
 
 # Generate map
 def generate_map(data_df: pd.DataFrame, areas_gdf, name: str, var: str,
